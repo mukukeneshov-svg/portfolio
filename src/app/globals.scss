@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  color-scheme:dark
+  ;
+  scroll-behavior: smooth;
+}
+.conteiner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  //   padding: 20px 0;
+}
+a{
+  text-decoration: none;
+}
+// Жылдыздардын түсү
+$star-white: rgba(255, 255, 255, 0.8);
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000; // Түпкү кара фон
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+
+  // Катмар 1: Кичинекей жылдыздар (Статикалык)
+  &::before {
+    content: "";
+    position: fixed; // Экран жылса да ордунда калат
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: 
+      radial-gradient(1px 1px at 10% 20%, $star-white, transparent),
+      radial-gradient(1px 1px at 30% 50%, #ffffff, transparent),
+      radial-gradient(2px 2px at 50% 80%, $star-white, transparent),
+      radial-gradient(1px 1px at 80% 10%, #ffffff, transparent),
+      radial-gradient(2px 2px at 20% 90%, $star-white, transparent),
+      radial-gradient(1px 1px at 70% 40%, #ffffff, transparent);
+    background-size: 250px 250px; // Жылдыздардын жыштыгы
+    opacity: 0.5;
+  }
+
+  // Катмар 2: Чоңураак жылдыздар (Бүлүлдөгөн / Twinkling)
+  &::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+      radial-gradient(2px 2px at 15% 15%, #fff, transparent),
+      radial-gradient(2px 2px at 85% 85%, #fff, transparent),
+      radial-gradient(2px 2px at 50% 20%, #fff, transparent),
+      radial-gradient(2px 2px at 10% 75%, #fff, transparent);
+    background-size: 400px 400px;
+    animation: twinkleBody 5s ease-in-out infinite;
+  }
+}
+
+// Жылдыздардын акырын өчүп-күйүү анимациясы
+@keyframes twinkleBody {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
