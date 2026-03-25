@@ -1,12 +1,16 @@
 .sectionWrapper {
   position: relative;
   width: 100%;
-  height: 600px; // Задай нужную высоту для секции
+  height: 500px; // Телефондо 600px өтө бийик болушу мүмкүн, бир аз азайттык
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background здесь не нужен, так как он берется из глобального body */
+  
+  /* Планшет жана телефондор үчүн бийиктикти тууралоо */
+  @media (max-width: 768px) {
+    height: 400px; 
+  }
 }
 
 .canvasContainer {
@@ -20,16 +24,34 @@
 
 .contentOverlay {
   position: relative;
-  z-index: 2; // Контент выше 3D сцены
+  z-index: 2;
   text-align: center;
-  pointer-events: none; // Чтобы можно было "протыкать" мышкой до 3D если нужно
+  pointer-events: none;
+  width: 100%;
+  padding: 0 20px; // Капталдарынан текст кысылып калбашы үчүн
 }
 
 .sectionTitle {
   font-family: 'Cinzel', serif;
   color: #fff;
-  font-size: 3rem;
-  letter-spacing: 10px;
+  /* clamp() функциясы экранга жараша текстти чоңойтуп-кичирейтет */
+  font-size: clamp(1.5rem, 6vw, 3rem); 
+  /* letter-spacing телефондо өтө чоң болбошу керек */
+  letter-spacing: clamp(4px, 2vw, 10px); 
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  width: 100%;
+  word-wrap: break-word; // Узун сөздөр болсо, кийинки сапка түшүрөт
+}
+
+/* --- Атайын телефондор үчүн кошумча жөндөө --- */
+@media (max-width: 480px) {
+  .sectionWrapper {
+    height: 350px; // Кичинекей телефондор үчүн
+  }
+  
+  .sectionTitle {
+    letter-spacing: 3px; // Тамгалардын арасын дагы тарыттык
+  }
 }

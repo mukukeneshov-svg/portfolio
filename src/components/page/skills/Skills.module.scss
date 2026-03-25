@@ -1,45 +1,72 @@
 .Skills {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    .Skills_logo{
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; // Бөлүмдөрдүн арасын бир аз ачтык
+  padding: 60px 20px;
+
   h1 {
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "League Spartan", sans-serif;
     font-weight: 600;
-    font-style: SemiBold;
-    font-size: 60px;
+    /* clamp() текстти телефондо кичирейтет */
+    font-size: clamp(32px, 8vw, 60px); 
     line-height: 1.2;
-     color: #333;
+    color: #fff; // Фон кара болсо, текстти ак кылган жакшы (сиздики #333 экен)
+    text-align: center;
   }
-  .html {
-    filter: invert(1);
-    margin-top: 30px;
+
+  .Skills_logo {
+    display: grid;
+    /* --- НЕГИЗГИ ӨЗГӨРТҮҮ --- */
+    /* Экранга жараша автоматтык түрдө мамычаларды азайтат (кеминде 150px) */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px; // Логотиптер өтө жайылып кетпеши үчүн
+    justify-items: center; // Логотиптерди ортолойт
   }
-  .css {
-    filter: invert(1);
+
+  // Логотиптердин жалпы стили
+  img {
+    width: 80px; // Логотиптин туурасы
+    height: auto;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-  .java {
+
+  .html, .css, .java, .api, .zus {
     filter: invert(1);
+    /* Эгер айрымдарына кара фон керек болсо */
+    &.api, &.zus {
+      background-color: black;
+      padding: 10px;
+      border-radius: 10px;
+    }
   }
-  // .axi {
-  //   filter: invert(1);
-  //   background-color: black;
-  // }
-  .api {
-    filter: invert(1);
-    background-color: black;
+
+  /* --- ТЕЛЕФОНДОР ҮЧҮН --- */
+  @media (max-width: 768px) {
+    .Skills_logo {
+      /* Телефондо 2 же 3 мамыча кылып койсо болот */
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 20px;
+    }
+    
+    img {
+      width: 60px; // Телефондо логотиптерди бир аз кичирейттик
+    }
   }
-  .zus {
-    filter: invert(1);
-    background-color: black;
+  
+  @media (max-width: 400px) {
+    .Skills_logo {
+      grid-template-columns: repeat(2, 1fr); // Эң кичине телефондо да 2ден
+    }
   }
 }

@@ -16,64 +16,61 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #f5f7fa00 0%, #c3cfe200 100%);
+  padding: 60px 20px; // Үстүнкү боштукту бир аз азайттык
   min-height: 100vh;
+  background: transparent;
 
   h1 {
-    font-size: 3.5rem;
-    margin-bottom: 40px;
+    font-size: clamp(2rem, 8vw, 3.5rem); // Экранга жараша автоматтык чоңоюп-кичирейет
+    margin-bottom: 30px;
     color: #2d3635;
     font-weight: 800;
+    text-align: center; // Телефондо ортодо турганы жакшы
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
 
   &_form {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px; // Аралыкты бир аз азайттык
     width: 100%;
     max-width: 450px;
     background: rgba(255, 255, 255, 0.158);
-    padding: 50px;
+    padding: 30px; // Телефондо ички боштукту (padding) 50px'ден 30px'ге түшүрдүк
     border-radius: 24px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); // Тунук фон үчүн эффект
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover {
-      transform: translateY(-10px) scale(1.01);
+      transform: translateY(-5px); // Мобилдикте өтө катуу секирбеши үчүн
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 18px;
+      padding: 15px; // Ички боштук кичирейди
       border: 2px solid #eee;
       border-radius: 12px;
       font-size: 16px;
       outline: none;
-      transition: all 0.3s ease;
-
-      &:hover {
-        border-color: #007bff;
-        background: #f0f7ff13;
-      }
+      background: white; // Телефондо текст жакшы көрүнүшү үчүн
 
       &:focus {
         border-color: #007bff;
-        animation: glow 2s infinite; // Фокус болгондо нур чачып турат
-        background:#007bff;
+        animation: glow 2s infinite;
+        // background: #007bff; // Бул жерди өчүрдүм, анткени фон көк болсо текст көрүнбөй калат
+        background: #fff;
       }
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 100px;
       resize: none;
     }
-   
     
     button {
-      padding: 18px;
+      padding: 16px;
       background: linear-gradient(45deg, #007bff, #00c6ff);
       color: white;
       border: none;
@@ -81,37 +78,29 @@
       font-weight: 700;
       font-size: 16px;
       cursor: pointer;
-      position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
 
+      /* Мобилдикте баскыч титиреп турса басканга ыңгайсыз болушу мүмкүн, 
+         ошондуктан анимацияны бир аз жайлаттык же hover болгондо гана калтырдык */
       &:hover {
         box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
-        transform: scale(1.05);
-        animation: shake 0.4s ease-in-out infinite; // Мышка келгенде солкулдайт
+        animation: shake 0.5s ease-in-out; 
       }
+    }
 
-      &:active {
-        transform: scale(0.95);
-        animation: none;
+    /* --- ТЕЛЕФОНДОР ҮЧҮН (480px чейин) --- */
+    @media (max-width: 480px) {
+      padding: 20px; // Форманын ичи дагы тарыды
+      gap: 15px;
+
+      button {
+        padding: 14px;
       }
-
-      // Баскычтын үстүнөн жарык өтүп кетүү эффекти
-      &::after {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(45deg);
-        transition: 0.5s;
-        left: -100%;
-      }
-
-      &:hover::after {
-        left: 100%;
+      
+      input, textarea {
+        padding: 12px;
+        font-size: 14px;
       }
     }
   }

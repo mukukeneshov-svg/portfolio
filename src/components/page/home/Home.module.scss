@@ -1,48 +1,53 @@
 .Home {
   display: flex;
-  // flex-direction: column;
   justify-content: space-between;
-  gap: 50px;
+  align-items: center; // Мазмунду вертикалдуу ортолойт
+  gap: 40px;
+  padding: 60px 20px; // Каптал боштуктар
+
   .Home_nav {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px; // Аралыкты бир аз азайттык
+    width: 100%;
+
     h1 {
       font-family: "League Spartan", sans-serif;
       font-weight: 600;
-      font-style: SemiBold;
-      font-size: 60px;
-      line-height: 1.2;
+      font-size: clamp(36px, 10vw, 60px); // Экранга жараша өзгөрөт
+      line-height: 1.1;
       color: rgba(255, 255, 255, 0.774);
-      .Me{
-        color: rgba(61, 11, 141, 0.795);
 
+      .Me {
+        color: rgba(110, 64, 201, 0.9); // Бир аз ачыкыраак кылдык, кара фондо жакшы көрүнөт
       }
     }
-    p{
-                font-family: "League Spartan", sans-serif;
-        // font-weight: 500;
-        // font-style: "Medium";
-        font-size: 24px;
-        text-align: center;
-        color: rgba(255, 255, 255, 0.445);
-        line-height: 24x;
-        margin-top: 20px;
-        margin-right: 250px;
 
+    p {
+      font-family: "League Spartan", sans-serif;
+      font-size: clamp(16px, 4vw, 24px);
+      text-align: left; // Телефондо солго түздөгөн жакшы
+      color: rgba(255, 255, 255, 0.445);
+      line-height: 1.5;
+      margin-top: 10px;
+      margin-right: 0; // 250px'ди алып салдык, бул телефондо баарын бузат
+      max-width: 600px; // Текст өтө жайылып кетпеши үчүн чектөө
     }
-    h4{
-              color: white;
+
+    h4 {
+      color: white;
       font-family: "League Spartan", sans-serif;
       font-weight: 400;
-      font-size: 40px;
-      span{
-color: rgba(61, 11, 141, 0.795);
+      font-size: clamp(22px, 6vw, 40px);
+      
+      span {
+        color: rgba(110, 64, 201, 0.9);
       }
-
     }
+
     .Home_line {
-      width: 500px;
+      width: 100%; // Экрандын туурасына жараша
+      max-width: 500px; // Бирок 500px'ден ашпайт
       height: 5px;
       border-radius: 5px;
       background: linear-gradient(
@@ -52,17 +57,48 @@ color: rgba(61, 11, 141, 0.795);
         rgba(73, 23, 246, 0.4) 93.7%
       );
     }
+
     .changeNameBtn {
-      margin-top: 20px;
+      align-self: flex-start; // Баскычты солго түздөйт
+      margin-top: 10px;
       background: transparent;
       border: 1px solid rgba(255,255,255,0.3);
       color: #aaa;
-      padding: 5px 15px;
+      padding: 8px 20px;
       border-radius: 20px;
       cursor: pointer;
-      font-size: 0.8rem;
-      &:hover { color: #fff; border-color: #fff; }
+      font-size: 0.9rem;
+      transition: 0.3s;
+      &:hover { 
+        color: #fff; 
+        border-color: #fff;
+        background: rgba(255,255,255,0.1);
+      }
     }
-  
+  }
+
+  /* --- МОБИЛДИК АДАПТАЦИЯ (768px жана андан кичине) --- */
+  @media (max-width: 768px) {
+    flex-direction: column; // Эгер оң жакта сүрөт болсо, ал астына түшөт
+    text-align: center; // Баарын ортого коебуз
+    padding: 40px 15px;
+
+    .Home_nav {
+      align-items: center; // Элементтерди (баскыч, сызык) ортолойт
+      gap: 20px;
+
+      p {
+        text-align: center;
+        margin-right: 0;
+      }
+
+      .changeNameBtn {
+        align-self: center; // Баскыч ортого келет
+      }
+      
+      .Home_line {
+        width: 80%; 
+      }
+    }
   }
 }

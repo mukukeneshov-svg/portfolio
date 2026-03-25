@@ -1,46 +1,49 @@
-.About{
+.About {
   display: flex;
-  // flex-direction: column;
   justify-content: space-between;
   gap: 50px;
+  padding: 40px 20px; 
+
   .About_nav {
     display: flex;
-    // flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 170px;
-    .About_information{
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+    gap: 50px; 
+    width: 100%;
+
+    .About_information {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
+
     h1 {
       font-family: "League Spartan", sans-serif;
       font-weight: 600;
-      font-style: SemiBold;
-      font-size: 60px;
+      font-size: clamp(32px, 8vw, 60px);
       line-height: 1.2;
       color: rgba(255, 255, 255, 0.774);
     }
-    p {
-      font-family: "League Spartan", sans-serif;
-      // font-weight: 500;
-      // font-style: "Medium";
-      font-size: 24px;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.445);
-      line-height: 24x;
-      margin-top: 20px;
-    //   margin-right: 250px;
-    }
+
     h4 {
       color: white;
       font-family: "League Spartan", sans-serif;
       font-weight: 400;
-      font-size: 40px;
+      font-size: clamp(24px, 5vw, 40px);
     }
+
+    p {
+      font-family: "League Spartan", sans-serif;
+      font-size: 18px; 
+      text-align: left; 
+      color: rgba(255, 255, 255, 0.445);
+      line-height: 1.5;
+      margin-top: 15px;
+    }
+
     .About_line {
-      width: 500px;
+      width: 100%; 
+      max-width: 500px; 
       height: 5px;
       border-radius: 5px;
       background: linear-gradient(
@@ -49,6 +52,30 @@
         rgba(153, 30, 234, 0.4) 52.66%,
         rgba(73, 23, 246, 0.4) 93.7%
       );
+    }
+  }
+
+ 
+  @media (max-width: 768px) {
+    flex-direction: column; 
+
+    .About_nav {
+      flex-direction: column; 
+      gap: 30px; 
+      text-align: center; 
+
+      .About_information {
+        align-items: center; 
+      }
+
+      p {
+        text-align: center;
+        font-size: 16px;
+      }
+
+      .About_line {
+        width: 80%; 
+      }
     }
   }
 }
