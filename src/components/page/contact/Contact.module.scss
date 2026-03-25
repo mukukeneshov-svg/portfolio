@@ -50,17 +50,17 @@
     textarea {
       width: 100%;
       padding: 15px; // Ички боштук кичирейди
-      border: 2px solid #eee;
+      border: 1px solid #eee;
       border-radius: 12px;
       font-size: 16px;
       outline: none;
-      background: white; // Телефондо текст жакшы көрүнүшү үчүн
+      background: rgba(255, 255, 255, 0.233); // Телефондо текст жакшы көрүнүшү үчүн
 
       &:focus {
-        border-color: #007bff;
+        border-color: white;
         animation: glow 2s infinite;
         // background: #007bff; // Бул жерди өчүрдүм, анткени фон көк болсо текст көрүнбөй калат
-        background: #fff;
+        background: #007bff;
       }
     }
 

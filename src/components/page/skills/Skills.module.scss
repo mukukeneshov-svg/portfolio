@@ -45,8 +45,9 @@
     filter: invert(1);
     /* Эгер айрымдарына кара фон керек болсо */
     &.api, &.zus {
+      filter: invert(1);
       background-color: black;
-      padding: 10px;
+      // padding: 10px;
       border-radius: 10px;
     }
   }
@@ -60,7 +61,7 @@
     }
     
     img {
-      width: 60px; // Телефондо логотиптерди бир аз кичирейттик
+      width: 100px; // Телефондо логотиптерди бир аз кичирейттик
     }
   }
   
