@@ -1,10 +1,14 @@
 #Header {
-  position: sticky;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  z-index: 100; 
   top: 0;
   padding: 20px 0; 
   background: black;
   z-index: 1000;
-  .Header {
+  .Header_inner {
     display: flex;
     align-items: center;
     justify-content: space-between;

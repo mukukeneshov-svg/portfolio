@@ -16,50 +16,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 20px; // Үстүнкү боштукту бир аз азайттык
+  padding: 60px 20px; 
   min-height: 100vh;
   background: transparent;
 
   h1 {
-    font-size: clamp(2rem, 8vw, 3.5rem); // Экранга жараша автоматтык чоңоюп-кичирейет
+    font-size: clamp(2rem, 8vw, 3.5rem); 
     margin-bottom: 30px;
     color: #2d3635;
     font-weight: 800;
-    text-align: center; // Телефондо ортодо турганы жакшы
+    text-align: center;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
 
   &_form {
     display: flex;
     flex-direction: column;
-    gap: 20px; // Аралыкты бир аз азайттык
+    gap: 20px; 
     width: 100%;
     max-width: 450px;
     background: rgba(255, 255, 255, 0.158);
-    padding: 30px; // Телефондо ички боштукту (padding) 50px'ден 30px'ге түшүрдүк
+    padding: 30px; 
     border-radius: 24px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px); // Тунук фон үчүн эффект
+    backdrop-filter: blur(10px); 
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover {
-      transform: translateY(-5px); // Мобилдикте өтө катуу секирбеши үчүн
+      transform: translateY(-5px); 
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 15px; // Ички боштук кичирейди
+      padding: 15px; 
       border: 1px solid #eee;
       border-radius: 12px;
       font-size: 16px;
       outline: none;
-      background: rgba(255, 255, 255, 0.233); // Телефондо текст жакшы көрүнүшү үчүн
+      background: rgba(255, 255, 255, 0.233); 
 
       &:focus {
         border-color: white;
         animation: glow 2s infinite;
-        // background: #007bff; // Бул жерди өчүрдүм, анткени фон көк болсо текст көрүнбөй калат
         background: #007bff;
       }
     }
@@ -81,17 +80,14 @@
       overflow: hidden;
       transition: all 0.3s ease;
 
-      /* Мобилдикте баскыч титиреп турса басканга ыңгайсыз болушу мүмкүн, 
-         ошондуктан анимацияны бир аз жайлаттык же hover болгондо гана калтырдык */
       &:hover {
         box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
         animation: shake 0.5s ease-in-out; 
       }
     }
 
-    /* --- ТЕЛЕФОНДОР ҮЧҮН (480px чейин) --- */
     @media (max-width: 480px) {
-      padding: 20px; // Форманын ичи дагы тарыды
+      padding: 20px; 
       gap: 15px;
 
       button {

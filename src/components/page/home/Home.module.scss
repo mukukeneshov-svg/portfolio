@@ -1,37 +1,37 @@
 .Home {
   display: flex;
   justify-content: space-between;
-  align-items: center; // Мазмунду вертикалдуу ортолойт
+  align-items: center; 
   gap: 40px;
-  padding: 60px 20px; // Каптал боштуктар
+  padding: 60px 20px; 
 
   .Home_nav {
     display: flex;
     flex-direction: column;
-    gap: 30px; // Аралыкты бир аз азайттык
+    gap: 30px; 
     width: 100%;
 
     h1 {
       font-family: "League Spartan", sans-serif;
       font-weight: 600;
-      font-size: clamp(36px, 10vw, 60px); // Экранга жараша өзгөрөт
+      font-size: clamp(36px, 10vw, 60px); 
       line-height: 1.1;
       color: rgba(255, 255, 255, 0.774);
 
       .Me {
-        color: rgba(110, 64, 201, 0.9); // Бир аз ачыкыраак кылдык, кара фондо жакшы көрүнөт
+        color: rgba(110, 64, 201, 0.9); 
       }
     }
 
     p {
       font-family: "League Spartan", sans-serif;
       font-size: clamp(16px, 4vw, 24px);
-      text-align: left; // Телефондо солго түздөгөн жакшы
+      text-align: left;
       color: rgba(255, 255, 255, 0.445);
       line-height: 1.5;
       margin-top: 10px;
-      margin-right: 0; // 250px'ди алып салдык, бул телефондо баарын бузат
-      max-width: 600px; // Текст өтө жайылып кетпеши үчүн чектөө
+      margin-right: 0; 
+      max-width: 600px;
     }
 
     h4 {
@@ -46,8 +46,8 @@
     }
 
     .Home_line {
-      width: 100%; // Экрандын туурасына жараша
-      max-width: 500px; // Бирок 500px'ден ашпайт
+      width: 100%; 
+      max-width: 500px; 
       height: 5px;
       border-radius: 5px;
       background: linear-gradient(
@@ -59,7 +59,7 @@
     }
 
     .changeNameBtn {
-      align-self: flex-start; // Баскычты солго түздөйт
+      align-self: flex-start; 
       margin-top: 10px;
       background: transparent;
       border: 1px solid rgba(255,255,255,0.3);
@@ -77,14 +77,13 @@
     }
   }
 
-  /* --- МОБИЛДИК АДАПТАЦИЯ (768px жана андан кичине) --- */
   @media (max-width: 768px) {
-    flex-direction: column; // Эгер оң жакта сүрөт болсо, ал астына түшөт
-    text-align: center; // Баарын ортого коебуз
+    flex-direction: column; 
+    text-align: center; 
     padding: 40px 15px;
 
     .Home_nav {
-      align-items: center; // Элементтерди (баскыч, сызык) ортолойт
+      align-items: center; 
       gap: 20px;
 
       p {
@@ -93,7 +92,7 @@
       }
 
       .changeNameBtn {
-        align-self: center; // Баскыч ортого келет
+        align-self: center; 
       }
       
       .Home_line {

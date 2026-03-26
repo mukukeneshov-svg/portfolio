@@ -20,50 +20,50 @@ const Skills = () => {
               src={html_logo}
               alt="one"
               className={scss.html}
-              width={200}
+              width={110}
             />
             <Image
               src={css_logo}
               alt="one"
               className={scss.css}
-              width={220}
-              height={220}
+              width={120}
+              height={120}
             />
             <Image
               src={java_logo}
               alt="one"
               className={scss.java}
-              width={370}
+              width={210}
             />
             <Image
               src={axi_logo}
               alt="one"
               className={scss.axi}
-              width={200}
+              width={100}
             />
             <Image
               src={api_logo}
               alt="one"
               className={scss.api}
-              width={200}
+              width={100}
             />
             <Image
               src={zus_logo}
               alt="one"
               className={scss.zus}
-              width={200}
+              width={100}
             />
             <Image
               src={rec_logo}
               alt="one"
               className={scss.rec}
-              width={200}
+              width={100}
             />
             <Image
               src={_logo}
               alt="one"
               className={scss.node}
-              width={200}
+              width={120}
             />
           </div>
         </div>

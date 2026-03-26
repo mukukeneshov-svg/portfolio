@@ -6,30 +6,30 @@
 
 html {
   color-scheme: dark;
-  scroll-behavior: smooth;
-  /* Телефондо экранды капталына чоюп жибербөө үчүн */
+  scroll-behavior: smooth !important;
   overflow-x: hidden; 
 }
 
-.conteiner { // Сиздин жазууңуз боюнча калтырдым
+.conteiner { 
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  /* --- НЕГИЗГИ ӨЗГӨРТҮҮ --- */
-  /* Телефондо мазмун экрандын кырына жабышып калбашы үчүн */
   padding: 0 20px; 
 
   @media (max-width: 480px) {
-    padding: 0 15px; // Кичинекей телефондордо боштукту бир аз азайттык
+    padding: 0 15px; 
   }
+}
+main {
+  padding-top: 30px; 
 }
 
 a {
   text-decoration: none;
-  color: inherit; // Шилтемелер демейки түсүн сакташы үчүн
+  color: inherit; 
 }
 
-// Жылдыздардын түсү
+
 $star-white: rgba(255, 255, 255, 0.8);
 
 body {
@@ -39,12 +39,9 @@ body {
   color: #ffffff;
   min-height: 100vh;
   position: relative;
-  /* Телефондо капталга "scroll" болбошу үчүн */
   overflow-x: hidden; 
-  /* Текстти окууга ыңгайлуу кылуу */
   font-family: 'League Spartan', sans-serif; 
 
-  // Катмар 1: Кичинекей жылдыздар
   &::before {
     content: "";
     position: fixed;
@@ -61,12 +58,10 @@ body {
       radial-gradient(2px 2px at 20% 90%, $star-white, transparent),
       radial-gradient(1px 1px at 70% 40%, #ffffff, transparent);
     
-    /* Телефондо жылдыздар өтө жыш болбошу үчүн өлчөмүн чоңойтобуз */
     background-size: 200px 200px; 
     opacity: 0.4;
   }
 
-  // Катмар 2: Чоңураак жылдыздар
   &::after {
     content: "";
     position: fixed;

@@ -5,10 +5,21 @@ import { Environment, Sparkles, Torus } from '@react-three/drei';
 import * as THREE from 'three';
 import scss from "./SectionLoader.module.scss";
 
-const SteampunkGear = ({ radius, width, speed, color, spokes = 6 }) => {
-  const meshRef = useRef();
+interface SteampunkGearProps {
+  radius: number;
+  width: number;
+  speed: number;
+  color: string;
+  spokes?: number;
+}
+
+const SteampunkGear: React.FC<SteampunkGearProps> = ({ radius, width, speed, color, spokes = 6 }) => {
+  const meshRef = useRef<THREE.Group>(null);
+
   useFrame((state, delta) => {
-    if (meshRef.current) meshRef.current.rotation.z += delta * speed;
+    if (meshRef.current) {
+      meshRef.current.rotation.z += delta * speed;
+    }
   });
 
   const gearParts = useMemo(() => ({
@@ -17,7 +28,6 @@ const SteampunkGear = ({ radius, width, speed, color, spokes = 6 }) => {
   }), [spokes]);
 
   return (
-    
     <group ref={meshRef}>
       <Torus args={[radius, width, 16, 100]}>
         <meshStandardMaterial color={color} metalness={1} roughness={0.1} />
@@ -45,7 +55,7 @@ const SteampunkGear = ({ radius, width, speed, color, spokes = 6 }) => {
 };
 
 const SceneContent = () => {
-  const groupRef = useRef();
+  const groupRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -73,7 +83,11 @@ const SceneContent = () => {
   );
 };
 
-const SectionLoader = () => {
+interface SectionLoaderProps {
+  onFinished?: () => void;
+}
+
+const SectionLoader: React.FC<SectionLoaderProps> = ({ onFinished }) => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -97,7 +111,7 @@ const SectionLoader = () => {
       </div>
 
       <div className={scss.contentOverlay}>
-        <h2 className={scss.sectionTitle}>Luck is Coming</h2>
+        <h2 className={scss.sectionTitle}>Loading...</h2>
         <div className={scss.separator}></div>
       </div>
     </section>

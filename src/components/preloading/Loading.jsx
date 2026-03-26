@@ -147,7 +147,7 @@ const Loading = ({ onFinished }) => {
       </div>
 
       <div className={scss.textContainer}>
-        <h1 className={scss.loadingText}>Winter is Coming</h1>
+        <h1 className={scss.loadingText}>Luck is Coming</h1>
         <div className={scss.progressBar}>
           <div className={scss.progressFill}></div>
         </div>

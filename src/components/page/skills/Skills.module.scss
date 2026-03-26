@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px; // Бөлүмдөрдүн арасын бир аз ачтык
+  gap: 40px;
   padding: 60px 20px;
 
   h1 {
@@ -12,62 +12,63 @@
     justify-content: center;
     font-family: "League Spartan", sans-serif;
     font-weight: 600;
-    /* clamp() текстти телефондо кичирейтет */
-    font-size: clamp(32px, 8vw, 60px); 
+    font-size: clamp(32px, 8vw, 60px);
     line-height: 1.2;
-    color: #fff; // Фон кара болсо, текстти ак кылган жакшы (сиздики #333 экен)
+    color: #2d3635;
+
     text-align: center;
   }
 
   .Skills_logo {
     display: grid;
-    /* --- НЕГИЗГИ ӨЗГӨРТҮҮ --- */
-    /* Экранга жараша автоматтык түрдө мамычаларды азайтат (кеминде 150px) */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 30px;
     width: 100%;
-    max-width: 1000px; // Логотиптер өтө жайылып кетпеши үчүн
-    justify-items: center; // Логотиптерди ортолойт
+    max-width: 1000px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
   }
 
-  // Логотиптердин жалпы стили
   img {
-    width: 80px; // Логотиптин туурасы
+    // width: 180px;
     height: auto;
     transition: transform 0.3s ease;
-    
+
     &:hover {
       transform: scale(1.1);
     }
   }
 
-  .html, .css, .java, .api, .zus {
+  .html,
+  .css,
+  .java,
+  .api,
+  .zus {
     filter: invert(1);
-    /* Эгер айрымдарына кара фон керек болсо */
-    &.api, &.zus {
+    &.api,
+    &.zus {
       filter: invert(1);
       background-color: black;
-      // padding: 10px;
       border-radius: 10px;
     }
   }
 
-  /* --- ТЕЛЕФОНДОР ҮЧҮН --- */
   @media (max-width: 768px) {
     .Skills_logo {
-      /* Телефондо 2 же 3 мамыча кылып койсо болот */
-      grid-template-columns: repeat(2, 1fr); 
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
-    
+
     img {
-      width: 100px; // Телефондо логотиптерди бир аз кичирейттик
+      width: 100px;
     }
   }
-  
+
   @media (max-width: 400px) {
     .Skills_logo {
-      grid-template-columns: repeat(2, 1fr); // Эң кичине телефондо да 2ден
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
