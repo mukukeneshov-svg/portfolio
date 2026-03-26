@@ -1,0 +1,75 @@
+.Footer {
+  background: #0f0f0f; // Кочкул фон
+  color: #fff;
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .Footer_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .Footer_logo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    p {
+      font-size: 14px;
+      color: #888;
+    }
+  }
+
+  .Footer_nav {
+    display: flex;
+    gap: 25px;
+
+    .nav_link {
+      cursor: pointer;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #fcc201; // Сиздин Steampunk түсүңүз
+      }
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  .Footer_socials {
+    display: flex;
+    gap: 20px;
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Хедердегидей эле Loader стили
+.fullScreenLoader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
